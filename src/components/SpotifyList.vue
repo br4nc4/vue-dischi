@@ -24,7 +24,7 @@ export default {
     methods: {
         fetchSpotifyList() {
             axios.get(this.apiURL).then((resp) => {
-                
+                this.spotifyList = resp.data.response
             })
         },
     },
