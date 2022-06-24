@@ -1,7 +1,9 @@
 <template>
     <div>
         <div class="vh-100 myBg">
-
+            <div class="container">
+                
+            </div>
         </div>
     </div>
 </template>

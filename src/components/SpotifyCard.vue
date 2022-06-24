@@ -5,10 +5,11 @@
 </template>
 
 <script>
-default export{
+export default{
 
 }
 </script>
 
 <style lang="scss" scoped>
+
 </style>
