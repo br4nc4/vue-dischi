@@ -2,7 +2,7 @@
     <div class="vh-100 myBg">
         <div class="container pt-5">
             <div class="row row-cols-5 g-4">
-                <div class="col" v-for="card in spotifyList" :key="card.year">
+                <div class="col px-0" v-for="card in spotifyList" :key="card.year">
                     <SpotifyCard :info="card"></SpotifyCard>
                 </div>
             </div>
