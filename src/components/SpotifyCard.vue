@@ -6,8 +6,8 @@
 
         <div class="text-center">
             <h5 class="text-white text-uppercase">{{info.title}}</h5>
-            <p class="text-secondary">{{info.author}}</p>
-            <p class="text-secondary">{{info.year}}</p>
+            <p class="text-secondary mb-0 lh-1 fw-semibold">{{info.author}}</p>
+            <p class="text-secondary lh-1 fw-semibold">{{info.year}}</p>
         </div>
     </div>
 </template>
@@ -36,5 +36,10 @@ export default {
     .myImg{
         aspect-ratio: 1/1;
         width: 100%;
+        margin-bottom: 1.2rem;
+    }
+
+    h5{
+        margin-bottom: 1rem;
     }
 </style>
