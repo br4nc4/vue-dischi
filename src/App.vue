@@ -1,19 +1,20 @@
 <template>
   <div>
     <TheHeader/>
-    <TheMain/>
+    <SpotifyList/>
   </div>
 </template>
 
 <script>
 import TheHeader from './components/TheHeader.vue';
-import TheMain from './components/TheMain.vue';
+import SpotifyList from './components/SpotifyList.vue';
+
 
 
 export default {
   components: {
     TheHeader,
-    TheMain
+    SpotifyList
 }
 }
 </script>
