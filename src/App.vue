@@ -11,10 +11,11 @@ import SpotifyList from './components/SpotifyList.vue';
 
 
 
+
 export default {
   components: {
     TheHeader,
-    SpotifyList
+    SpotifyList,
 }
 }
 </script>
