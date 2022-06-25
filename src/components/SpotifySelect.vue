@@ -1,6 +1,6 @@
 <template>
     <div>
-        <select onchange="selectGenre" class="form-select" aria-label="Default select example">
+        <select @change="selectGenre" class="form-select" aria-label="Default select example">
             <option></option>
         </select>
     </div>
