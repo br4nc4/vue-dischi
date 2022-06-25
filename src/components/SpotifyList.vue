@@ -2,11 +2,11 @@
     <div class="vh-100 myBg">
         <div class="container pt-5">
             <div>
-                <SpotifySelect></SpotifySelect>
+                <SpotifySelect @select="onSelectGenre"></SpotifySelect>
             </div>
 
             <div class="row row-cols-5 g-4">
-                <div class="col" v-for="card in spotifyList" :key="card.year">
+                <div class="col" v-for="card in spotifyList" :key="card.title">
                     <SpotifyCard :info="card"></SpotifyCard>
                 </div>
             </div>
@@ -33,6 +33,9 @@ export default {
                 this.spotifyList = resp.data.response
             })
         },
+        onSelectGenre(value){
+            console.log(value);
+        }
     },
     mounted() {
         this.fetchSpotifyList()
