@@ -1,8 +1,6 @@
 <template>
     <div>
-        <select onchange="selectGenre" class="form-select" aria-label="Default select example"
-        v-model="genreSelected">
-            <option></option>
+        <select onchange="selectGenre" class="form-select" aria-label="Default select example">
             <option></option>
         </select>
     </div>
@@ -10,17 +8,22 @@
 
 <script>
 export default {
+    props: {
+        spotifyList: Array,
+    },
     data(){
         return{
+            genreList: [],
         }
     },
     methods:{
         selectGenre(){
-        }
-    }
+        },
+        
+    },
 }
 </script>
 
-<style>
+<style lang="scss" scoped>
 
 </style>

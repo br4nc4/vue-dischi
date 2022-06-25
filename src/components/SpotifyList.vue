@@ -2,7 +2,7 @@
     <div class="vh-100 myBg">
         <div class="container pt-5">
             <div>
-                <SpotifySelect @select="onSelectGenre"></SpotifySelect>
+                <SpotifySelect :spotify-list="spotifyList" @select="onSelectGenre"></SpotifySelect>
             </div>
 
             <div class="row row-cols-5 g-4">
