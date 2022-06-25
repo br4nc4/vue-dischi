@@ -28,13 +28,12 @@ export default {
         }
     },
     methods: {
-        fetchSpotifyList(value) {
-            axios.get(this.apiURL, {params: {genre: value}}).then((resp) => {
+        fetchSpotifyList() {
+            axios.get(this.apiURL).then((resp) => {
                 this.spotifyList = resp.data.response
             })
         },
-        onSelectGenre(value){
-            this.fetchSpotifyList(value)
+        onSelectGenre(){
         }
     },
     mounted() {
