@@ -1,6 +1,10 @@
 <template>
     <div class="vh-100 myBg">
         <div class="container pt-5">
+            <div>
+                <SpotifySelect></SpotifySelect>
+            </div>
+
             <div class="row row-cols-5 g-4">
                 <div class="col" v-for="card in spotifyList" :key="card.year">
                     <SpotifyCard :info="card"></SpotifyCard>
@@ -13,9 +17,10 @@
 <script>
 import axios from "axios";
 import SpotifyCard from "./SpotifyCard.vue";
+import SpotifySelect from "./SpotifySelect.vue";
 
 export default {
-    components: { SpotifyCard },
+    components: { SpotifyCard, SpotifySelect },
     data() {
         return {
             apiURL: "https://flynn.boolean.careers/exercises/api/array/music",
