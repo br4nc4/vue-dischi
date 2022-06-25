@@ -9,11 +9,10 @@
 <script>
 export default {
     props: {
-        spotifyList: Array,
+        spotifylist: Array,
     },
     data(){
         return{
-            genreList: [],
         }
     },
     methods:{
