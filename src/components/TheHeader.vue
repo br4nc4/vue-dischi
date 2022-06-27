@@ -6,7 +6,7 @@
             </div>
 
             <div>
-                <SpotifySelect :lista-generi="ListaGeneri" @searchGenre="$emit('searchGenre', $event)"></SpotifySelect>
+                <SpotifySelect :lista-generi="listaGeneri" @searchGenre="$emit('searchGenre', $event)"></SpotifySelect>
             </div>
         </div>
     </div>
@@ -16,7 +16,7 @@
 import SpotifySelect from './SpotifySelect.vue'
 
 export default {
-    components: {SpotifySelect,},
+    components: {SpotifySelect},
     props: {
         listaGeneri: Array
     },

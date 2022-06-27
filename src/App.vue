@@ -1,7 +1,8 @@
 <template>
   <div>
-    <TheHeader :lista-generi="listaGeneri" @searchGenre="onSearchGenre($event)"></TheHeader>
-    <SpotifyList @generesUpdated="onGeneresUpdated" :search-genre="searchGenre"></SpotifyList>
+    <TheHeader :lista-generi="listaGeneri" @searchGenre="onSearchGenre"></TheHeader>
+
+    <SpotifyList @genresUpdated="onGenresUpdate" :search-genre="searchGenre"></SpotifyList>
   </div>
 </template>
 
@@ -13,23 +14,23 @@ import SpotifyList from './components/SpotifyList.vue';
 
 
 export default {
+  components: {
+    TheHeader,
+    SpotifyList,
+  },
   data() {
     return {
       listaGeneri: [],
       searchGenre: "",
     }
   },
-  components: {
-    TheHeader,
-    SpotifyList,
-  },
   methods: {
-    onGeneresUpdated (listaGeneri) {
+    onGenresUpdate (listaGeneri) {
       console.log(listaGeneri);
       this.listaGeneri = listaGeneri
     },
     onSearchGenre(genre){
-      this.onSearchGenre = genre;
+      this.searchGenre = genre;
     }
   },
 }

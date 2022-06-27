@@ -31,7 +31,7 @@ export default {
                 return this.spotifyList
             }
             return this.spotifyList.filter((album) => {
-                return album.genre === this.searchGenre
+                return album.genre === this.searchGenre;
             })
         }
     },
@@ -40,14 +40,14 @@ export default {
             axios.get(this.apiURL).then((resp) => {
                 this.spotifyList = resp.data.response
 
-                this.$emit("generesUpdated", this.listaGeneri())
+                this.$emit("genresUpdated", this.listaGeneri())
             })
         },
         listaGeneri() {
             const lista = [];
             this.spotifyList.forEach((album) => {
                 if(!lista.includes(album.genre)){
-                    lista.push(album.genre)
+                    lista.push(album.genre);
                 }
             })
             return lista;
