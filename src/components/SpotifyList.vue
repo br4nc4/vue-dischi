@@ -40,7 +40,9 @@ export default {
             axios.get(this.apiURL).then((resp) => {
                 this.spotifyList = resp.data.response
 
-                this.$emit("genresUpdated", this.listaGeneri())
+                this.$emit("genresUpdated", this.listaGeneri());
+
+                this.$emit("artistsUpdated", this.listaArtisti());
             })
         },
         listaGeneri() {
@@ -51,6 +53,14 @@ export default {
                 }
             })
             return lista;
+        },
+        listaArtisti() {
+            const lista = [];
+            this.spotifyList.forEach((disk) => {
+                if(!lista.includes(disk.author)){
+                    lista.push(disk.author);
+                }
+            })
         },
     },
     mounted() {
