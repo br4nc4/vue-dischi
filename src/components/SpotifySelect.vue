@@ -9,10 +9,10 @@
 
         <select type="text" class="form-select ms-4">
             <option value="">Scegli un Artista</option>
-            <option value=""></option>
+            <option v-for="artista in listaArtisti" :key="artista" value="">{{artista}}</option>
         </select>
 
-        <button class="btn btn-secondary btn-outline">Cerca</button>
+        <button class="btn btn-secondary btn-outline" @click="onSearchArtist">Cerca</button>
     </div>
 </template>
 
@@ -20,6 +20,7 @@
 export default {
     props: {
         listaGeneri: Array,
+        listaArtisti: Array,
     },
     data(){
         return{
@@ -29,7 +30,10 @@ export default {
     methods: {
         onSearchClick(){
             this.$emit("searchGenre", this.genre);
-        }
+        },
+        onSearchArtist(){
+            this.$emit("searchArtist", this.author);
+        },
     },
 }
 </script>

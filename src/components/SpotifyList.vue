@@ -18,6 +18,7 @@ export default {
     components: { SpotifyCard, },
     props: {
         searchGenre: String,
+        searchArtist: String,
     },
     data() {
         return {
@@ -31,9 +32,9 @@ export default {
                 return this.spotifyList
             }
             return this.spotifyList.filter((album) => {
-                return album.genre === this.searchGenre;
+                return album.genre === this.searchGenre
             })
-        }
+        },
     },
     methods: {
         fetchSpotifyList() {
@@ -55,12 +56,13 @@ export default {
             return lista;
         },
         listaArtisti() {
-            const lista = [];
-            this.spotifyList.forEach((disk) => {
-                if(!lista.includes(disk.author)){
-                    lista.push(disk.author);
+            const list = [];
+            this.spotifyList.forEach((album) => {
+                if(!list.includes(album.author)){
+                    list.push(album.author);
                 }
             })
+            return list;
         },
     },
     mounted() {

@@ -1,11 +1,16 @@
 <template>
   <div>
-    <TheHeader :lista-generi="listaGeneri" @searchGenre="onSearchGenre"></TheHeader>
+    <TheHeader
+    :lista-generi="listaGeneri" 
+    @searchGenre="onSearchGenre"
+    :lista-artisti="listaArtisti"
+    @searchArtist="onSearchArtist"></TheHeader>
 
     <SpotifyList 
     @genresUpdated="onGenresUpdate" 
     :search-genre="searchGenre"
-    @artistsUpdated="onArtistsUpdate"></SpotifyList>
+    @artistsUpdated="onArtistsUpdate"
+    :search-artist="searchArtist"></SpotifyList>
   </div>
 </template>
 
@@ -26,6 +31,7 @@ export default {
       listaGeneri: [],
       listaArtisti: [],
       searchGenre: "",
+      searchArtist: "",
     }
   },
   methods: {
@@ -39,7 +45,10 @@ export default {
     },
     onSearchGenre(genre){
       this.searchGenre = genre;
-    }
+    },
+    onSearchArtist(author){
+      this.searchArtist = author;
+    },
   },
 }
 </script>
