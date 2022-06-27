@@ -28,12 +28,24 @@ export default {
     },
     computed: {
         filteredAlbums() {
-            if(!this.searchGenre){
+            if(!this.searchGenre && !this.searchArtist){
                 return this.spotifyList
             }
-            return this.spotifyList.filter((album) => {
-                return album.genre === this.searchGenre
-            })
+            else if (this.searchGenre) {
+                return this.spotifyList.filter(album => {
+                    return album.genre.includes(this.searchGenre)
+                })
+            }
+            else if (this.searchArtist) {
+                return this.spotifyList.filter(album => {
+                    return album.author.includes(this.searchArtist)
+                })
+            }
+            else {
+                return this.spotifyList.filter(album => {
+                    return album.genre.includes(this.searchGenre) && album.author.includes(this.searchArtist)
+                })
+            }
         },
     },
     methods: {

@@ -9,7 +9,7 @@
 
         <select type="text" class="form-select ms-4">
             <option value="">Scegli un Artista</option>
-            <option v-for="artista in listaArtisti" :key="artista" value="">{{artista}}</option>
+            <option v-for="artista in listaArtisti" :key="artista" :value="artista">{{artista}}</option>
         </select>
 
         <button class="btn btn-secondary btn-outline" @click="onSearchArtist">Cerca</button>
