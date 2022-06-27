@@ -1,11 +1,11 @@
 <template>
     <div class="input-group">
-        <select v-model="genre">
-            <option>Scegli un genere</option>
+        <select type="text" class="form-select" v-model="genre">
+            <option value="">Scegli un genere</option>
             <option v-for="genere in listaGeneri" :key="genere" value="genere">{{genere}}</option>
         </select>
 
-        <button @click="onSearchClick">Cerca</button>
+        <button class="btn btn-secondary btn-outline" @click="onSearchClick">Cerca</button>
     </div>
 </template>
 

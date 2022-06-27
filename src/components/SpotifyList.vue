@@ -45,7 +45,7 @@ export default {
         },
         listaGeneri() {
             const lista = [];
-            this.spotifyList.forEach((album) =>{
+            this.spotifyList.forEach((album) => {
                 if(!lista.includes(album.genre)){
                     lista.push(album.genre)
                 }
