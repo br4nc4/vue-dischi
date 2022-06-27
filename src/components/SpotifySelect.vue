@@ -1,31 +1,27 @@
 <template>
-    <div>
-        <select @change="selectGenre" class="form-select" aria-label="Default select example">
-            <option v-for="genre in getGenre()" :key="genre">{{genre}}</option>
+    <div class="input-group">
+        <select v-model="genre">
+            <option>Scegli un genere</option>
+            <option v-for="genere in listaGeneri" :key="genere" value="genere">{{genere}}</option>
         </select>
+
+        <button @click="onSearchClick">Cerca</button>
     </div>
 </template>
 
 <script>
 export default {
     props: {
-        spotifylist: Array,
+        listaGeneri: Array,
     },
     data(){
         return{
+            genre: ""
         }
     },
     methods:{
-        selectGenre(){
-        },
-        getGenre(){
-            const list = [];
-            this.spotifyList.forEach((disk) => {
-                if(!list.includes(disk.genre)){
-                    list.push(disk.genre)
-                }
-            });
-            return list;
+        onSearchClick(){
+            this.$emit("searchGenre", this.genre);
         }
     },
 }

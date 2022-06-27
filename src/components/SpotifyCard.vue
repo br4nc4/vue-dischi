@@ -1,13 +1,13 @@
 <template>
     <div class="myCard h-100">
         <div>
-            <img class="myImg" :src="info.poster" :alt="info.title">
+            <img class="myImg" :src="albumPoster" :alt="album.title" @error="onImgError"/>
         </div>
 
         <div class="text-center">
-            <h5 class="text-white text-uppercase">{{info.title}}</h5>
-            <p class="text-secondary mb-0 lh-1 fw-semibold">{{info.author}}</p>
-            <p class="text-secondary lh-1 fw-semibold">{{info.year}}</p>
+            <h5 class="text-white text-uppercase">{{album.title}}</h5>
+            <p class="text-secondary mb-0 lh-1 fw-semibold">{{album.author}}</p>
+            <p class="text-secondary lh-1 fw-semibold">{{album.year}}</p>
         </div>
     </div>
 </template>
@@ -16,8 +16,21 @@
 export default {
     name: 'SpotifyCard',
     props: {
-        info: Object,
+        album: Object,
     },
+    data() {
+        return {
+            albumPoster: "",
+        }
+    },
+    methods: {
+        onImgError() {
+            this.albumPoster = "/img/noimage.jpg";
+        },
+    },
+    mounted() {
+        this.albumPoster = this.album.poster;
+    }
 }
 </script>
 

@@ -1,13 +1,9 @@
 <template>
-    <div class="vh-100 myBg">
-        <div class="container pt-5">
-            <div>
-                <SpotifySelect :spotifylist="spotifyList" @selectGenre="onSelectGenre"></SpotifySelect>
-            </div>
-
+    <div class="vh-100 myBg d-flex flex-column">
+        <div class="container overflow-auto pt-5">
             <div class="row row-cols-5 g-4">
-                <div class="col" v-for="card in spotifyList" :key="card.title">
-                    <SpotifyCard :info="card"></SpotifyCard>
+                <div class="col" v-for="album in filteredAlbums" :key="album.title">
+                    <SpotifyCard :album="album"></SpotifyCard>
                 </div>
             </div>
         </div>
@@ -17,28 +13,48 @@
 <script>
 import axios from "axios";
 import SpotifyCard from "./SpotifyCard.vue";
-import SpotifySelect from "./SpotifySelect.vue";
 
 export default {
-    components: { SpotifyCard, SpotifySelect },
+    components: { SpotifyCard, },
+    props: {
+        searchGenre: String,
+    },
     data() {
         return {
             apiURL: "https://flynn.boolean.careers/exercises/api/array/music",
             spotifyList: [],
         }
     },
+    computed: {
+        filteredAlbums() {
+            if(!this.searchGenre){
+                return this.spotifyList
+            }
+            return this.spotifyList.filter((album) => {
+                return album.genre === this.searchGenre
+            })
+        }
+    },
     methods: {
         fetchSpotifyList() {
             axios.get(this.apiURL).then((resp) => {
                 this.spotifyList = resp.data.response
+
+                this.$emit("generesUpdated", this.listaGeneri())
             })
         },
-        onSelectGenre(){
+        listaGeneri() {
+            const lista = [];
+            this.spotifyList.forEach((album) =>{
+                if(!lista.includes(album.genre)){
+                    lista.push(album.genre)
+                }
+            })
+            return lista;
         },
-        
     },
     mounted() {
-        this.fetchSpotifyList()
+        this.fetchSpotifyList();
     }
 }
 </script>
