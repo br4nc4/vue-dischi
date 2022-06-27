@@ -6,6 +6,13 @@
         </select>
 
         <button class="btn btn-secondary btn-outline" @click="onSearchClick">Cerca</button>
+
+        <select type="text" class="form-select ms-4">
+            <option value="">Scegli un Artista</option>
+            <option value=""></option>
+        </select>
+
+        <button class="btn btn-secondary btn-outline">Cerca</button>
     </div>
 </template>
 
