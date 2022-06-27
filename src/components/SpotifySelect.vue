@@ -1,7 +1,7 @@
 <template>
     <div>
         <select @change="selectGenre" class="form-select" aria-label="Default select example">
-            <option></option>
+            <option v-for="genre in getGenre()" :key="genre">{{genre}}</option>
         </select>
     </div>
 </template>
@@ -18,7 +18,15 @@ export default {
     methods:{
         selectGenre(){
         },
-        
+        getGenre(){
+            const list = [];
+            this.spotifyList.forEach((disk) => {
+                if(!list.includes(disk.genre)){
+                    list.push(disk.genre)
+                }
+            });
+            return list;
+        }
     },
 }
 </script>

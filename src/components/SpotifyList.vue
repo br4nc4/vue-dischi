@@ -2,7 +2,7 @@
     <div class="vh-100 myBg">
         <div class="container pt-5">
             <div>
-                <SpotifySelect :spotifylist="spotifyList" @select="onSelectGenre"></SpotifySelect>
+                <SpotifySelect :spotifylist="spotifyList" @selectGenre="onSelectGenre"></SpotifySelect>
             </div>
 
             <div class="row row-cols-5 g-4">
@@ -35,15 +35,7 @@ export default {
         },
         onSelectGenre(){
         },
-        getGenre(){
-            const list = [];
-            this.spotifyList.forEach((disk) => {
-                if(!list.includes(disk.genre)){
-                    list.push(disk.genre)
-                }
-            });
-            return list;
-        }
+        
     },
     mounted() {
         this.fetchSpotifyList()
