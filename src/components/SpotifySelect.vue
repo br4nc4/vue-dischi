@@ -7,7 +7,7 @@
 
         <button class="btn btn-secondary btn-outline" @click="onSearchClick">Cerca</button>
 
-        <select type="text" class="form-select ms-4">
+        <select type="text" class="form-select ms-4" v-model="author">
             <option value="">Scegli un Artista</option>
             <option v-for="artista in listaArtisti" :key="artista" :value="artista">{{artista}}</option>
         </select>
@@ -24,7 +24,8 @@ export default {
     },
     data(){
         return{
-            genre: ""
+            genre: "",
+            author: "",
         }
     },
     methods: {
